@@ -13,6 +13,19 @@ function random(min, max) {
   return num;
 }
 
+let ballsQuantity = 0;
+function addBall(){
+  if (ballsQuantity >= 0){
+    ballsQuantity ++;
+    for (let i = 0; i < balls.length; i++) {
+      balls[i].draw();
+      balls[i].update();
+    }
+  }
+  else{
+    console.log("Wtf");
+  }
+}
 function Ball(x, y, velX, velY, color, size) {
     this.x = x;
     this.y = y;
@@ -72,22 +85,6 @@ function Ball(x, y, velX, velY, color, size) {
 
   let balls = [];
 
-while (balls.length < 50) {
-  let size = random(12,24);
-  let ball = new Ball(
-    // ball position always drawn at least one ball width
-    // away from the edge of the canvas, to avoid drawing errors
-    random(0 + size,width - size),
-    random(0 + size,height - size),
-    random(-4,1),
-    random(-4,1),
-    'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')',
-    size
-  );
-
-  balls.push(ball);
-}
-
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
@@ -99,6 +96,21 @@ function loop() {
   }
 
   requestAnimationFrame(loop);
+  while (balls.length < ballsQuantity) {
+    let size = random(12,24);
+    let ball = new Ball(
+      // ball position always drawn at least one ball width
+      // away from the edge of the canvas, to avoid drawing errors
+      random(0 + size,width - size),
+      random(0 + size,height - size),
+      random(-4,1),
+      random(-4,1),
+      'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')',
+      size
+    );
+  
+    balls.push(ball);
+  }
 }
 
 loop();

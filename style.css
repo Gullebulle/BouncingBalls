@@ -25,7 +25,7 @@ html, body {
   }
 
   body{
-    background-color: blue;
+    background-image: repeating-linear-gradient(rgb(181, 186, 255), rgb(30, 0, 199));
   }
   canvas{
     height: 75%;
