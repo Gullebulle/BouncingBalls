@@ -16,16 +16,23 @@ function random(min, max) {
 let ballsQuantity = 0;
 function addBall(){
   if (ballsQuantity >= 0){
-    ballsQuantity ++;
-    for (let i = 0; i < balls.length; i++) {
-      balls[i].draw();
-      balls[i].update();
-    }
+    ballsQuantity++;
   }
   else{
-    console.log("Wtf");
+    console.log("You can't do that")
   }
 }
+
+function removeBall(){
+  if (ballsQuantity > 0){
+    ballsQuantity--;
+    balls[1].exists = false;
+  }
+  else{
+    console.log("You can't do that")
+  }
+}
+
 function Ball(x, y, velX, velY, color, size) {
     this.x = x;
     this.y = y;
