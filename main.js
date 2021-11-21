@@ -12,10 +12,9 @@ function random(min, max) {
   const num = Math.floor(Math.random() * (max - min + 1)) + min;
   return num;
 }
-
 let ballsQuantity = 0;
 function addBall(){
-  if (ballsQuantity >= 0){
+  if (balls.length >= 0){
     ballsQuantity++;
   }
   else{
@@ -24,9 +23,8 @@ function addBall(){
 }
 
 function removeBall(){
-  if (ballsQuantity > 0){
-    ballsQuantity--;
-    balls[1].exists = false;
+  if (balls.length > 0){
+    balls.pop();
   }
   else{
     console.log("You can't do that")
