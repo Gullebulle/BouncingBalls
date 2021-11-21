@@ -12,7 +12,11 @@ function random(min, max) {
   const num = Math.floor(Math.random() * (max - min + 1)) + min;
   return num;
 }
+
+let balls = [];
 let ballsQuantity = 0;
+let differentSizes = 0;
+
 function addBall(){
   if (balls.length >= 0){
     ballsQuantity++;
@@ -24,11 +28,16 @@ function addBall(){
 
 function removeBall(){
   if (balls.length > 0){
+    ballsQuantity--;
     balls.pop();
   }
   else{
     console.log("You can't do that")
   }
+}
+
+function weirdSizes(){
+    differentSizes = random(0, 12);
 }
 
 function Ball(x, y, velX, velY, color, size) {
@@ -43,7 +52,7 @@ function Ball(x, y, velX, velY, color, size) {
   Ball.prototype.draw = function() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
-    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, this.size, differentSizes, 2 * Math.PI);
     ctx.fill();
   }
 
@@ -87,8 +96,6 @@ function Ball(x, y, velX, velY, color, size) {
       }
     }
   }
-
-  let balls = [];
 
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
