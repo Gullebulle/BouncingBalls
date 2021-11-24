@@ -18,12 +18,7 @@ let ballsQuantity = 0;
 let differentSizes = 0;
 
 function addBall(){
-  if (balls.length >= 0){
-    ballsQuantity++;
-  }
-  else{
-    console.log("You can't do that")
-  }
+  ballsQuantity++;
 }
 
 function removeBall(){
